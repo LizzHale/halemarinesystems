@@ -425,7 +425,7 @@
     display: block;
   }
 
-  .project-img-slot img + ::after { display: none; }
+  .project-img-slot:has(img)::after { display: none; }
 
   .project-details {
     padding: 2.5rem;
