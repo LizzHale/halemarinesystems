@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kelley Hale — Marine Systems</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Source+Sans+3:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0B1D2E;
+    --deep: #132D46;
+    --slate: #2A4A5F;
+    --steel: #5A7A8A;
+    --mist: #8FA8B7;
+    --fog: #C4D4DE;
+    --cloud: #E8EEF2;
+    --white: #F6F8FA;
+    --cream: #FAFBFC;
+    --accent: #B87A3D;
+    --accent-light: #D4A06A;
+    --accent-glow: rgba(184,122,61,0.12);
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'Source Sans 3', -apple-system, sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--white);
+    color: var(--navy);
+    line-height: 1.65;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 1.25rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(246,248,250,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--cloud);
+    transition: all 0.3s ease;
+  }
+
+  nav.scrolled {
+    padding: 0.85rem 3rem;
+    box-shadow: 0 1px 20px rgba(11,29,46,0.06);
+  }
+
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    color: var(--navy);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+
+  .nav-logo span { color: var(--accent); }
+
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+
+  .nav-links a {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--slate);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    transition: color 0.25s;
+    position: relative;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1.5px;
+    background: var(--accent);
+    transition: width 0.3s ease;
+  }
+
+  .nav-links a:hover { color: var(--navy); }
+  .nav-links a:hover::after { width: 100%; }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 8rem 3rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 60%;
+    height: 140%;
+    background: linear-gradient(135deg, var(--cloud) 0%, transparent 60%);
+    border-radius: 50%;
+    opacity: 0.5;
+  }
+
+  .hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-label {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.2s forwards;
+  }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(3rem, 6.5vw, 5.5rem);
+    line-height: 1.05;
+    color: var(--navy);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.4s forwards;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-sub {
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: var(--steel);
+    max-width: 520px;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.6s forwards;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: var(--navy);
+    color: var(--white);
+    padding: 0.9rem 2rem;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.8s forwards;
+  }
+
+  .hero-cta:hover {
+    background: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(184,122,61,0.2);
+  }
+
+  .hero-cta svg { transition: transform 0.3s; }
+  .hero-cta:hover svg { transform: translateX(4px); }
+
+  .hero-stats {
+    display: flex;
+    gap: 3.5rem;
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--cloud);
+    opacity: 0;
+    animation: fadeUp 0.8s ease 1s forwards;
+  }
+
+  .stat-number {
+    font-family: var(--serif);
+    font-size: 2.2rem;
+    color: var(--navy);
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 0.78rem;
+    color: var(--mist);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 0.25rem;
+  }
+
+  /* ─── SECTIONS ─── */
+  section {
+    padding: 6rem 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    color: var(--navy);
+    margin-bottom: 1rem;
+  }
+
+  .section-intro {
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: var(--steel);
+    max-width: 600px;
+    margin-bottom: 3.5rem;
+    line-height: 1.7;
+  }
+
+  /* ─── ABOUT ─── */
+  #about { background: var(--cream); padding: 6rem 3rem; max-width: 100%; }
+
+  .about-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .about-photo {
+    aspect-ratio: 3/4;
+    background: var(--cloud);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-photo::after {
+    content: 'Photo';
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    color: var(--mist);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .about-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .about-text h2 {
+    font-family: var(--serif);
+    font-size: 2.4rem;
+    margin-bottom: 1.5rem;
+    color: var(--navy);
+  }
+
+  .about-text p {
+    font-weight: 300;
+    color: var(--slate);
+    margin-bottom: 1.2rem;
+    line-height: 1.75;
+    font-size: 1.02rem;
+  }
+
+  .school-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 1rem;
+    padding: 0.75rem 1.25rem;
+    background: var(--accent-glow);
+    border-left: 3px solid var(--accent);
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--navy);
+  }
+
+  .certs-block {
+    margin-top: 1.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .certs-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--navy);
+    margin-bottom: 0.75rem;
+  }
+
+  .certs-title svg { color: var(--accent); }
+
+  .cert-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--cloud);
+    font-size: 0.9rem;
+  }
+
+  .cert-item:last-child { border-bottom: none; }
+
+  .cert-status {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.55rem;
+    min-width: 85px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .cert-item.passed .cert-status {
+    background: #e6f4ea;
+    color: #1a7a3a;
+  }
+
+  .cert-item.upcoming .cert-status {
+    background: var(--accent-glow);
+    color: var(--accent);
+  }
+
+  .cert-name {
+    color: var(--slate);
+    font-weight: 400;
+  }
+
+  /* ─── PROJECTS ─── */
+  .project-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    margin-bottom: 2rem;
+    background: var(--cream);
+    border: 1px solid var(--cloud);
+    transition: all 0.4s ease;
+    overflow: hidden;
+  }
+
+  .project-card:hover {
+    border-color: var(--fog);
+    box-shadow: 0 12px 40px rgba(11,29,46,0.06);
+    transform: translateY(-3px);
+  }
+
+  .project-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 2px;
+    background: var(--cloud);
+    min-height: 380px;
+  }
+
+  .project-img-slot {
+    background: var(--cloud);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .project-img-slot::after {
+    content: 'Photo';
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--mist);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .project-img-slot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .project-img-slot img + ::after { display: none; }
+
+  .project-details {
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .project-type {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+
+  .project-title {
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+    line-height: 1.25;
+  }
+
+  .project-vessel {
+    font-size: 0.9rem;
+    color: var(--steel);
+    margin-bottom: 1.25rem;
+    font-weight: 300;
+  }
+
+  .project-desc {
+    font-size: 0.92rem;
+    color: var(--slate);
+    line-height: 1.7;
+    margin-bottom: 0.75rem;
+    font-weight: 300;
+  }
+
+  .project-expanded {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .project-expanded.open {
+    max-height: 800px;
+  }
+
+  .project-expanded-inner {
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--cloud);
+    font-size: 0.9rem;
+    color: var(--slate);
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  .project-expanded-inner h4 {
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--navy);
+    margin-top: 1.1rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .project-expanded-inner h4:first-child {
+    margin-top: 0;
+  }
+
+  .project-expanded-inner p {
+    margin-bottom: 0.6rem;
+  }
+
+  .read-more-btn {
+    background: none;
+    border: none;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    cursor: pointer;
+    padding: 0;
+    margin-bottom: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: color 0.2s;
+  }
+
+  .read-more-btn:hover { color: var(--navy); }
+
+  .read-more-btn svg {
+    transition: transform 0.3s;
+    width: 14px;
+    height: 14px;
+  }
+
+  .read-more-btn.open svg {
+    transform: rotate(180deg);
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: auto;
+  }
+
+  .tag {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    padding: 0.35rem 0.75rem;
+    background: var(--white);
+    border: 1px solid var(--cloud);
+    color: var(--slate);
+    text-transform: uppercase;
+  }
+
+  /* ─── SKILLS ─── */
+  #skills { background: var(--navy); padding: 6rem 3rem; max-width: 100%; color: var(--white); }
+
+  .skills-inner { max-width: 1200px; margin: 0 auto; }
+
+  #skills .section-label { color: var(--accent-light); }
+  #skills .section-title { color: var(--white); }
+  #skills .section-intro { color: var(--mist); }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .skill-group {
+    padding: 2rem;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.03);
+    transition: all 0.3s ease;
+  }
+
+  .skill-group:hover {
+    border-color: rgba(184,122,61,0.3);
+    background: rgba(184,122,61,0.05);
+  }
+
+  .skill-group h3 {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    margin-bottom: 1rem;
+    color: var(--fog);
+  }
+
+  .skill-group ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+
+  .skill-group li {
+    font-size: 0.88rem;
+    color: var(--mist);
+    font-weight: 300;
+    padding-left: 1rem;
+    position: relative;
+  }
+
+  .skill-group li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 4px;
+    height: 4px;
+    background: var(--accent);
+    border-radius: 50%;
+  }
+
+  /* ─── CONTACT ─── */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .contact-info p {
+    font-weight: 300;
+    color: var(--slate);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    font-size: 1.02rem;
+  }
+
+  .contact-detail {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--cloud);
+    font-size: 0.95rem;
+    color: var(--navy);
+  }
+
+  .contact-detail svg { color: var(--accent); flex-shrink: 0; }
+
+  .contact-detail a {
+    color: var(--navy);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .contact-detail a:hover { color: var(--accent); }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    font-family: var(--sans);
+    font-size: 0.9rem;
+    border: 1px solid var(--cloud);
+    background: var(--cream);
+    color: var(--navy);
+    outline: none;
+    transition: border-color 0.3s;
+  }
+
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    border-color: var(--accent);
+  }
+
+  .contact-form textarea { min-height: 140px; resize: vertical; }
+
+  .contact-form button {
+    align-self: flex-start;
+    padding: 0.85rem 2.5rem;
+    background: var(--navy);
+    color: var(--white);
+    border: none;
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .contact-form button:hover {
+    background: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    padding: 2.5rem 3rem;
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--mist);
+    border-top: 1px solid var(--cloud);
+    letter-spacing: 0.05em;
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { gap: 1.5rem; }
+    .nav-links a { font-size: 0.75rem; }
+    .hero { padding: 7rem 1.5rem 3rem; }
+    .hero-stats { gap: 2rem; flex-wrap: wrap; }
+    section { padding: 4rem 1.5rem; }
+    .about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .about-photo { max-height: 350px; }
+    .project-card { grid-template-columns: 1fr; }
+    .project-images { min-height: 250px; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    #about, #skills { padding: 4rem 1.5rem; }
+  }
+
+  @media (max-width: 600px) {
+    .nav-links { display: none; }
+    .hero h1 { font-size: 2.4rem; }
+    .stat-number { font-size: 1.6rem; }
+    .project-details { padding: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">Kelley <span>Hale</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-label">ABYC Certified Marine Systems Advisor</div>
+    <h1>Kelley Hale</h1>
+    <p class="hero-sub">
+      Marine systems technician specializing in electrical integration, shore power systems, and precision installations. Trained at the Northwest School of Wooden Boat Building.
+    </p>
+    <a href="#projects" class="hero-cta">
+      View Projects
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-inner">
+    <div class="about-photo">
+      <!-- Replace with: <img src="your-photo.jpg" alt="Kelley Hale"> -->
+    </div>
+    <div class="about-text">
+      <div class="section-label">About</div>
+      <h2>Kelley Hale</h2>
+      <p>
+        I'm an ABYC Certified Marine Systems Advisor completing the Marine Systems Program at the Northwest School of Wooden Boat Building in Port Hadlock, Washington — one of the premier programs for traditional and modern boatbuilding in the country.
+      </p>
+      <p>
+        I come to marine systems with a background in construction and woodworking — I built houses with my father as a young adult, which gave me a strong foundation in craftsmanship, problem-solving, and hands-on teamwork. I've carried those habits into my training, where I've developed skills across marine electrical systems, plumbing, heating, diesel and outboard engines, and corrosion prevention.
+      </p>
+      <p>
+        I'm most drawn to marine electrical work — clean, well-organized installations where planning and execution matter just as much as technical knowledge. I believe a properly installed system should perform flawlessly and look like it belongs on the vessel.
+      </p>
+      <p>
+        I complete my program in June 2026 and am available for work starting August 2026.
+      </p>
+      <div class="certs-block">
+        <div class="certs-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15l-2 5l2-2l2 2l-2-5"/><circle cx="12" cy="9" r="6"/><path d="M9.5 7.5L12 9l2.5-1.5"/></svg>
+          ABYC Certifications
+        </div>
+        <div class="cert-item passed">
+          <span class="cert-status">Certified</span>
+          <span class="cert-name">Marine Systems Advisor</span>
+        </div>
+        <div class="cert-item passed">
+          <span class="cert-status">Passed</span>
+          <span class="cert-name">Marine Systems Certification Exam</span>
+        </div>
+        <div class="cert-item passed">
+          <span class="cert-status">Passed</span>
+          <span class="cert-name">Marine Engines &amp; Fuel Systems Certification Exam</span>
+        </div>
+        <div class="cert-item upcoming">
+          <span class="cert-status">June 2026</span>
+          <span class="cert-name">Marine Electrical Certification Exam</span>
+        </div>
+      </div>
+      <div class="school-badge">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c6 3 12 0 12 0v-5"/></svg>
+        <div>
+          Northwest School of Wooden Boat Building — Marine Systems Program
+          <div style="font-size: 0.78rem; font-weight: 400; color: var(--steel); margin-top: 0.15rem;">2025 – 2026</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">Selected Work</div>
+  <h2 class="section-title">Projects</h2>
+  <p class="section-intro">
+    Hands-on marine systems work — from shore power integration on cruising sailboats to complete electrical builds on custom vessels.
+  </p>
+
+  <!-- Project 1: S/V Nova -->
+  <div class="project-card">
+    <div class="project-images">
+      <div class="project-img-slot"><img src="nova-1.jpeg" alt="Team installing Victron isolation transformer in stern cabin"></div>
+      <div class="project-img-slot"><img src="nova-2.jpeg" alt="Victron transformer wiring detail - AC conductors routed"></div>
+      <div class="project-img-slot"><img src="nova-3.jpeg" alt="Victron transformer internal wiring closeup"></div>
+      <div class="project-img-slot"><img src="nova-4.jpeg" alt="Victron isolation transformer mounted on bulkhead"></div>
+    </div>
+    <div class="project-details">
+      <div class="project-type">Shore Power Integration</div>
+      <h3 class="project-title">Victron Isolation Transformer Installation</h3>
+      <p class="project-vessel">38' Beneteau Sailboat</p>
+      <p class="project-desc">
+        Installed a Victron isolation transformer on a 38-foot Beneteau sailboat, integrating it into the vessel's shore power system to improve electrical safety and eliminate galvanic corrosion risks from shore power connections.
+      </p>
+      <button class="read-more-btn" onclick="toggleExpand(this)">
+        Read more
+        <svg viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="project-expanded">
+        <div class="project-expanded-inner">
+          <h4>The Challenge</h4>
+          <p>Boats connected to shore power are vulnerable to galvanic corrosion — stray currents flowing through the grounding conductor can slowly eat away at underwater metals. The owner needed an isolation transformer wired inline between the shore power inlet and the AC distribution panel to break that galvanic path while maintaining full electrical safety.</p>
+          <h4>Mounting &amp; Structural Considerations</h4>
+          <p>At roughly 50 lbs, the Victron transformer needed a mounting location that could handle significant weight under dynamic sea conditions — heeling, wave impact, and vibration. We evaluated multiple locations in the stern cabin and selected a structurally sound bulkhead that allowed full backside access for through-bolting with appropriate backing hardware. This ensured a secure, permanent installation that could be inspected and serviced in the future.</p>
+          <h4>Electrical Work</h4>
+          <p>Routed and terminated all AC conductors with proper wire gauge selection based on circuit amperage and conductor length, in alignment with ABYC standards. Particular attention was given to the AC grounding conductor to ensure compliance with current-carrying and fault protection requirements. All conductors were installed with proper separation, strain relief, and chafe protection for clean, serviceable routing.</p>
+          <h4>Configuration &amp; Verification</h4>
+          <p>Following installation, configured the system using the VictronConnect app, verifying correct operational settings and confirming the unit was properly integrated into the vessel's existing electrical system.</p>
+        </div>
+      </div>
+      <div class="project-tags">
+        <span class="tag">AC Systems</span>
+        <span class="tag">Victron</span>
+        <span class="tag">Shore Power</span>
+        <span class="tag">ABYC Standards</span>
+        <span class="tag">Galvanic Isolation</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project 2: Custom Runabout -->
+  <div class="project-card">
+    <div class="project-images">
+      <div class="project-img-slot"><!-- <img src="runabout-1.jpg" alt="Console panel fabrication"> --></div>
+      <div class="project-img-slot"><!-- <img src="runabout-2.jpg" alt="Electrical system wiring"> --></div>
+      <div class="project-img-slot"><!-- <img src="runabout-3.jpg" alt="Custom panel installed"> --></div>
+      <div class="project-img-slot"><!-- <img src="runabout-4.jpg" alt="Runabout on the water"> --></div>
+    </div>
+    <div class="project-details">
+      <div class="project-type">Full Electrical Build &bull; In Progress</div>
+      <h3 class="project-title">Custom Runabout Electrical System</h3>
+      <p class="project-vessel">12' Custom Wood Runabout — NWSWB Student Build</p>
+      <p class="project-desc">
+        Designing and installing the complete electrical system on a custom 12-foot wooden runabout built at the Northwest School of Wooden Boat Building. While the system itself is relatively simple, the project demands a high level of precision, planning, and aesthetic integration to match the craftsmanship of the vessel.
+      </p>
+      <button class="read-more-btn" onclick="toggleExpand(this)">
+        Read more
+        <svg viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="project-expanded">
+        <div class="project-expanded-inner">
+          <h4>System Design</h4>
+          <p>The electrical system includes an AGM starter battery, a bilge pump circuit, a fused distribution block, a Victron battery charger, and a dual-USB charging outlet. All components are being installed with careful attention to ABYC-aligned practices, including proper conductor sizing, circuit protection, and clean, serviceable routing.</p>
+          <h4>Custom Panel Fabrication</h4>
+          <p>A significant portion of the project has involved designing and fabricating custom console panels from marine-grade plywood to house the electrical controls. These panels were shaped and finished to complement the boat's woodwork, requiring careful consideration of both form and function. The goal is to create an installation that not only performs reliably but also visually integrates with the vessel's handcrafted aesthetic.</p>
+          <h4>Expanding Scope</h4>
+          <p>In addition to the electrical system, the project includes routing and installing a mechanical steering system and fuel distribution system, further contributing to the vessel's completion as a fully functional boat.</p>
+          <h4>Key Takeaway</h4>
+          <p>This project highlights the ability to execute clean, functional electrical installations while respecting and enhancing the visual integrity of a traditionally crafted vessel — where every wire run, every panel edge, and every fastener is part of the finished product.</p>
+        </div>
+      </div>
+      <div class="project-tags">
+        <span class="tag">DC Systems</span>
+        <span class="tag">Panel Fabrication</span>
+        <span class="tag">Battery Systems</span>
+        <span class="tag">Steering</span>
+        <span class="tag">Fuel Systems</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="skills-inner">
+    <div class="section-label">Capabilities</div>
+    <h2 class="section-title">Skills &amp; Training</h2>
+    <p class="section-intro">
+      Technical skills developed through hands-on training in the NWSWB Marine Systems Program.
+    </p>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h3>Electrical Systems</h3>
+        <ul>
+          <li>AC &amp; DC marine electrical</li>
+          <li>Shore power integration</li>
+          <li>Isolation transformer installation</li>
+          <li>Battery systems &amp; charging</li>
+          <li>Circuit protection &amp; distribution</li>
+          <li>Conductor sizing &amp; routing</li>
+          <li>Lighting circuits</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h3>Mechanical &amp; Fuel Systems</h3>
+        <ul>
+          <li>Diesel &amp; outboard engines</li>
+          <li>Fuel distribution systems</li>
+          <li>Mechanical steering systems</li>
+          <li>Plumbing &amp; heating systems</li>
+          <li>Bilge pump installation</li>
+          <li>Corrosion prevention</li>
+          <li>Equipment mounting &amp; loading</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h3>Standards &amp; Certifications</h3>
+        <ul>
+          <li>ABYC Certified Marine Systems Advisor</li>
+          <li>ABYC Marine Systems (passed)</li>
+          <li>ABYC Marine Engines &amp; Fuel Systems (passed)</li>
+          <li>ABYC Marine Electrical (June 2026)</li>
+          <li>Victron system configuration</li>
+          <li>Custom panel fabrication</li>
+          <li>Marine-grade finishing</li>
+          <li>System documentation</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h3>Craftsmanship &amp; Fabrication</h3>
+        <ul>
+          <li>Custom console panel design &amp; fabrication</li>
+          <li>Construction &amp; woodworking</li>
+          <li>Clean routing &amp; serviceable layouts</li>
+          <li>Aesthetic integration with vessel finishes</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h3>Prior Experience</h3>
+        <ul>
+          <li>Search &amp; rescue (NM Field Certified)</li>
+          <li>High angle rescue systems</li>
+          <li>Certified Master Retul Fit Technician</li>
+          <li>Motion capture &amp; biomechanical analysis</li>
+          <li>GPS, radio &amp; field equipment operation</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h3>Core Strengths</h3>
+        <ul>
+          <li>Precision planning &amp; execution</li>
+          <li>Problem-solving under constraints</li>
+          <li>Multi-agency coordination</li>
+          <li>Technical training &amp; instruction</li>
+          <li>Detail-oriented craftsmanship</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Get In Touch</div>
+  <h2 class="section-title">Contact</h2>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <p>
+        Interested in working together or have questions about my projects? I'd love to hear from you. I'm currently based in Port Hadlock, WA and completing my program in June 2026. Available to start as early as August 2026.
+      </p>
+      <div class="contact-detail">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        <a href="/cdn-cgi/l/email-protection#ec878980808995ac878980808995848d80899c848398838b9e8d9c8495c28f8381"><span class="__cf_email__" data-cfemail="cca7a9a0a0a9b58ca7a9a0a0a9b5a4ada0a9bca4a3b8a3abbeadbca4b5e2afa3a1">[email&#160;protected]</span></a>
+      </div>
+      <div class="contact-detail">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <a href="tel:+14157555381">(415) 755-5381</a>
+      </div>
+      <div class="contact-detail">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        Port Hadlock, Washington
+      </div>
+    </div>
+    <div class="contact-form">
+      <input type="text" placeholder="Name">
+      <input type="email" placeholder="Email">
+      <input type="text" placeholder="Subject">
+      <textarea placeholder="Message"></textarea>
+      <button type="button">Send Message</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  &copy; 2026 Kelley Hale &nbsp;&middot;&nbsp; Marine Systems &nbsp;&middot;&nbsp; Port Hadlock, WA
+</footer>
+</footer>
+
+<script>
+  // Nav scroll effect
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  // Toggle project expanded details
+  function toggleExpand(btn) {
+    const expanded = btn.nextElementSibling;
+    expanded.classList.toggle('open');
+    btn.classList.toggle('open');
+    const label = expanded.classList.contains('open') ? 'Read less' : 'Read more';
+    btn.innerHTML = label + ' <svg viewBox="0 0 16 16" fill="none" width="14" height="14"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  }
+
+  // Smooth scroll for nav links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+
+</body>
+</html>
