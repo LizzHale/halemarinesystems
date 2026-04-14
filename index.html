@@ -900,6 +900,48 @@
       </div>
     </div>
   </div>
+
+  <!-- Project 3: Electrical Systems Mock-Up -->
+  <div class="project-card">
+    <div class="project-images">
+      <div class="project-img-slot"><img src="board-front.jpg" alt="Complete AC/DC electrical systems mock-up with green faceplates, distribution panels, VHF radio, and navigation lighting"></div>
+      <div class="project-img-slot"><img src="board-wiring.jpg" alt="Annotated wiring diagram showing color-coded AC and DC conductor routing with labeled components"></div>
+      <div class="project-img-slot"><img src="board-batteries.jpg" alt="Dual-bank battery setup with house and starter batteries, ACR, MRBF fuses, and bus bar"></div>
+      <div class="project-img-slot"><img src="board-full.jpg" alt="Full system wiring layout showing all conductor routing and component placement"></div>
+    </div>
+    <div class="project-details">
+      <div class="project-type">AC/DC Integrated System</div>
+      <h3 class="project-title">Marine Electrical Systems Mock-Up</h3>
+      <p class="project-vessel">1st Quarter Project — NWSWB Marine Systems Program</p>
+      <p class="project-desc">
+        Designed and built a full-scale mock-up of a small vessel's complete electrical system, integrating 12V DC and 120V AC systems with emphasis on ABYC compliance, clean layout, and real-world serviceability.
+      </p>
+      <button class="read-more-btn" onclick="toggleExpand(this)">
+        Read more
+        <svg viewBox="0 0 16 16" fill="none" width="14" height="14"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="project-expanded">
+        <div class="project-expanded-inner">
+          <h4>DC System</h4>
+          <p>Built around a dual-bank configuration (engine start and house), with 2 AWG marine-grade tinned copper primary cables and a 150A Class T fuse within 7 inches of the house battery positive terminal per ABYC E-11. The fused distribution panel supplies branch circuits for navigation lighting, cabin lighting, bilge pump with automatic float switch and manual override, windshield wiper, VHF radio, and USB charging — all sized to meet ABYC voltage drop requirements.</p>
+          <h4>AC System</h4>
+          <p>Fed via a 30A shore power inlet using 10/3 AWG marine-grade cable through a main breaker with reverse polarity indication. A ProSafe FS30 galvanic isolator is installed in the AC grounding conductor per ABYC A-28 to mitigate corrosion. A Guest ChargePro battery charger is integrated on a dedicated AC breaker, with system monitoring via Victron Bluetooth diagnostics.</p>
+          <h4>Helm Panel Design</h4>
+          <p>Designed the helm-facing layout with an emphasis on intuitive user interaction. Components are grouped by function using custom green faceplates — bilge pump controls on a single panel, cabin lighting with its switch, windshield wiper with its control. The goal was a clear, user-friendly interface where the relationship between switches and their loads is immediately apparent, even without labeling.</p>
+          <h4>Standards Compliance</h4>
+          <p>During the build, I identified and corrected an ABYC compliance oversight — conductors from the DC distribution panel to the navigation lighting overcurrent protection exceeded the 7-inch unsheathed limit. I retrofitted the installation with appropriate sheathing to bring the system into compliance. This correction reinforced the importance of continuous standards verification throughout the build process.</p>
+        </div>
+      </div>
+      <div class="project-tags">
+        <span class="tag">AC/DC Integration</span>
+        <span class="tag">ABYC E-11</span>
+        <span class="tag">Shore Power</span>
+        <span class="tag">Galvanic Isolation</span>
+        <span class="tag">Panel Design</span>
+        <span class="tag">VHF Installation</span>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- SKILLS -->
