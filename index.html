@@ -859,43 +859,44 @@
     Hands-on marine systems work — from shore power integration on cruising sailboats to complete electrical builds on custom vessels.
   </p>
 
-  <!-- Project 1: S/V Nova -->
+  <!-- Project 1: Electrical Systems Mock-Up -->
   <div class="project-card">
     <div class="project-images">
-      <div class="project-img-slot"><img src="images/nova-1.jpeg" alt="Team installing Victron isolation transformer in stern cabin"></div>
-      <div class="project-img-slot"><img src="images/nova-2.jpeg" alt="Victron transformer wiring detail - AC conductors routed"></div>
-      <div class="project-img-slot"><img src="images/nova-3.jpeg" alt="Victron transformer internal wiring closeup"></div>
-      <div class="project-img-slot"><img src="images/nova-4.jpeg" alt="Victron isolation transformer mounted on bulkhead"></div>
+      <div class="project-img-slot"><img src="images/board-front.jpg" alt="Complete AC/DC electrical systems mock-up with green faceplates, distribution panels, VHF radio, and navigation lighting"></div>
+      <div class="project-img-slot"><img src="images/board-wiring.jpg" alt="Annotated wiring diagram showing color-coded AC and DC conductor routing with labeled components"></div>
+      <div class="project-img-slot"><img src="images/board-batteries.jpg" alt="Dual-bank battery setup with house and starter batteries, ACR, MRBF fuses, and bus bar"></div>
+      <div class="project-img-slot"><img src="images/board-full.jpg" alt="Full system wiring layout showing all conductor routing and component placement"></div>
     </div>
     <div class="project-details">
-      <div class="project-type">Shore Power Integration</div>
-      <h3 class="project-title">Victron Isolation Transformer Installation</h3>
-      <p class="project-vessel">38' Beneteau Sailboat</p>
+      <div class="project-type">AC/DC Integrated System</div>
+      <h3 class="project-title">Marine Electrical Systems Mock-Up</h3>
+      <p class="project-vessel">1st Quarter Project — NWSWB Marine Systems Program</p>
       <p class="project-desc">
-        Installed a Victron isolation transformer on a 38-foot Beneteau sailboat, integrating it into the vessel's shore power system to improve electrical safety and eliminate galvanic corrosion risks from shore power connections.
+        Designed and built a full-scale mock-up of a small vessel's complete electrical system, integrating 12V DC and 120V AC systems with emphasis on ABYC compliance, clean layout, and real-world serviceability.
       </p>
       <button class="read-more-btn" onclick="toggleExpand(this)">
         Read more
-        <svg viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 16 16" fill="none" width="14" height="14"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
       <div class="project-expanded">
         <div class="project-expanded-inner">
-          <h4>The Challenge</h4>
-          <p>Boats connected to shore power are vulnerable to galvanic corrosion — stray currents flowing through the grounding conductor can slowly eat away at underwater metals. The owner needed an isolation transformer wired inline between the shore power inlet and the AC distribution panel to break that galvanic path while maintaining full electrical safety.</p>
-          <h4>Mounting &amp; Structural Considerations</h4>
-          <p>At roughly 50 lbs, the Victron transformer needed a mounting location that could handle significant weight under dynamic sea conditions — heeling, wave impact, and vibration. We evaluated multiple locations in the stern cabin and selected a structurally sound bulkhead that allowed full backside access for through-bolting with appropriate backing hardware. This ensured a secure, permanent installation that could be inspected and serviced in the future.</p>
-          <h4>Electrical Work</h4>
-          <p>Routed and terminated all AC conductors with proper wire gauge selection based on circuit amperage and conductor length, in alignment with ABYC standards. Particular attention was given to the AC grounding conductor to ensure compliance with current-carrying and fault protection requirements. All conductors were installed with proper separation, strain relief, and chafe protection for clean, serviceable routing.</p>
-          <h4>Configuration &amp; Verification</h4>
-          <p>Following installation, configured the system using the VictronConnect app, verifying correct operational settings and confirming the unit was properly integrated into the vessel's existing electrical system.</p>
+          <h4>DC System</h4>
+          <p>Built around a dual-bank configuration (engine start and house), with 2 AWG marine-grade tinned copper primary cables and a 150A Class T fuse within 7 inches of the house battery positive terminal per ABYC E-11. The fused distribution panel supplies branch circuits for navigation lighting, cabin lighting, bilge pump with automatic float switch and manual override, windshield wiper, VHF radio, and USB charging — all sized to meet ABYC voltage drop requirements.</p>
+          <h4>AC System</h4>
+          <p>Fed via a 30A shore power inlet using 10/3 AWG marine-grade cable through a main breaker with reverse polarity indication. A ProSafe FS30 galvanic isolator is installed in the AC grounding conductor per ABYC A-28 to mitigate corrosion. A Guest ChargePro battery charger is integrated on a dedicated AC breaker, with system monitoring via Victron Bluetooth diagnostics.</p>
+          <h4>Helm Panel Design</h4>
+          <p>Designed the helm-facing layout with an emphasis on intuitive user interaction. Components are grouped by function using custom green faceplates — bilge pump controls on a single panel, cabin lighting with its switch, windshield wiper with its control. The goal was a clear, user-friendly interface where the relationship between switches and their loads is immediately apparent, even without labeling.</p>
+          <h4>Standards Compliance</h4>
+          <p>During the build, I identified and corrected an ABYC compliance oversight — conductors from the DC distribution panel to the navigation lighting overcurrent protection exceeded the 7-inch unsheathed limit. I retrofitted the installation with appropriate sheathing to bring the system into compliance. This correction reinforced the importance of continuous standards verification throughout the build process.</p>
         </div>
       </div>
       <div class="project-tags">
-        <span class="tag">AC Systems</span>
-        <span class="tag">Victron</span>
+        <span class="tag">AC/DC Integration</span>
+        <span class="tag">ABYC E-11</span>
         <span class="tag">Shore Power</span>
-        <span class="tag">ABYC Standards</span>
         <span class="tag">Galvanic Isolation</span>
+        <span class="tag">Panel Design</span>
+        <span class="tag">VHF Installation</span>
       </div>
     </div>
   </div>
@@ -941,44 +942,43 @@
     </div>
   </div>
 
-  <!-- Project 3: Electrical Systems Mock-Up -->
+  <!-- Project 3: S/V Nova -->
   <div class="project-card">
     <div class="project-images">
-      <div class="project-img-slot"><img src="images/board-front.jpg" alt="Complete AC/DC electrical systems mock-up with green faceplates, distribution panels, VHF radio, and navigation lighting"></div>
-      <div class="project-img-slot"><img src="images/board-wiring.jpg" alt="Annotated wiring diagram showing color-coded AC and DC conductor routing with labeled components"></div>
-      <div class="project-img-slot"><img src="images/board-batteries.jpg" alt="Dual-bank battery setup with house and starter batteries, ACR, MRBF fuses, and bus bar"></div>
-      <div class="project-img-slot"><img src="images/board-full.jpg" alt="Full system wiring layout showing all conductor routing and component placement"></div>
+      <div class="project-img-slot"><img src="images/nova-1.jpeg" alt="Team installing Victron isolation transformer in stern cabin"></div>
+      <div class="project-img-slot"><img src="images/nova-2.jpeg" alt="Victron transformer wiring detail - AC conductors routed"></div>
+      <div class="project-img-slot"><img src="images/nova-3.jpeg" alt="Victron transformer internal wiring closeup"></div>
+      <div class="project-img-slot"><img src="images/nova-4.jpeg" alt="Victron isolation transformer mounted on bulkhead"></div>
     </div>
     <div class="project-details">
-      <div class="project-type">AC/DC Integrated System</div>
-      <h3 class="project-title">Marine Electrical Systems Mock-Up</h3>
-      <p class="project-vessel">1st Quarter Project — NWSWB Marine Systems Program</p>
+      <div class="project-type">Shore Power Integration</div>
+      <h3 class="project-title">Victron Isolation Transformer Installation</h3>
+      <p class="project-vessel">38' Beneteau Sailboat</p>
       <p class="project-desc">
-        Designed and built a full-scale mock-up of a small vessel's complete electrical system, integrating 12V DC and 120V AC systems with emphasis on ABYC compliance, clean layout, and real-world serviceability.
+        Installed a Victron isolation transformer on a 38-foot Beneteau sailboat, integrating it into the vessel's shore power system to improve electrical safety and eliminate galvanic corrosion risks from shore power connections.
       </p>
       <button class="read-more-btn" onclick="toggleExpand(this)">
         Read more
-        <svg viewBox="0 0 16 16" fill="none" width="14" height="14"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
       <div class="project-expanded">
         <div class="project-expanded-inner">
-          <h4>DC System</h4>
-          <p>Built around a dual-bank configuration (engine start and house), with 2 AWG marine-grade tinned copper primary cables and a 150A Class T fuse within 7 inches of the house battery positive terminal per ABYC E-11. The fused distribution panel supplies branch circuits for navigation lighting, cabin lighting, bilge pump with automatic float switch and manual override, windshield wiper, VHF radio, and USB charging — all sized to meet ABYC voltage drop requirements.</p>
-          <h4>AC System</h4>
-          <p>Fed via a 30A shore power inlet using 10/3 AWG marine-grade cable through a main breaker with reverse polarity indication. A ProSafe FS30 galvanic isolator is installed in the AC grounding conductor per ABYC A-28 to mitigate corrosion. A Guest ChargePro battery charger is integrated on a dedicated AC breaker, with system monitoring via Victron Bluetooth diagnostics.</p>
-          <h4>Helm Panel Design</h4>
-          <p>Designed the helm-facing layout with an emphasis on intuitive user interaction. Components are grouped by function using custom green faceplates — bilge pump controls on a single panel, cabin lighting with its switch, windshield wiper with its control. The goal was a clear, user-friendly interface where the relationship between switches and their loads is immediately apparent, even without labeling.</p>
-          <h4>Standards Compliance</h4>
-          <p>During the build, I identified and corrected an ABYC compliance oversight — conductors from the DC distribution panel to the navigation lighting overcurrent protection exceeded the 7-inch unsheathed limit. I retrofitted the installation with appropriate sheathing to bring the system into compliance. This correction reinforced the importance of continuous standards verification throughout the build process.</p>
+          <h4>The Challenge</h4>
+          <p>Boats connected to shore power are vulnerable to galvanic corrosion — stray currents flowing through the grounding conductor can slowly eat away at underwater metals. The owner needed an isolation transformer wired inline between the shore power inlet and the AC distribution panel to break that galvanic path while maintaining full electrical safety.</p>
+          <h4>Mounting &amp; Structural Considerations</h4>
+          <p>At roughly 50 lbs, the Victron transformer needed a mounting location that could handle significant weight under dynamic sea conditions — heeling, wave impact, and vibration. We evaluated multiple locations in the stern cabin and selected a structurally sound bulkhead that allowed full backside access for through-bolting with appropriate backing hardware. This ensured a secure, permanent installation that could be inspected and serviced in the future.</p>
+          <h4>Electrical Work</h4>
+          <p>Routed and terminated all AC conductors with proper wire gauge selection based on circuit amperage and conductor length, in alignment with ABYC standards. Particular attention was given to the AC grounding conductor to ensure compliance with current-carrying and fault protection requirements. All conductors were installed with proper separation, strain relief, and chafe protection for clean, serviceable routing.</p>
+          <h4>Configuration &amp; Verification</h4>
+          <p>Following installation, configured the system using the VictronConnect app, verifying correct operational settings and confirming the unit was properly integrated into the vessel's existing electrical system.</p>
         </div>
       </div>
       <div class="project-tags">
-        <span class="tag">AC/DC Integration</span>
-        <span class="tag">ABYC E-11</span>
+        <span class="tag">AC Systems</span>
+        <span class="tag">Victron</span>
         <span class="tag">Shore Power</span>
+        <span class="tag">ABYC Standards</span>
         <span class="tag">Galvanic Isolation</span>
-        <span class="tag">Panel Design</span>
-        <span class="tag">VHF Installation</span>
       </div>
     </div>
   </div>
