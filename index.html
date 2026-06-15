@@ -982,6 +982,54 @@
       </div>
     </div>
   </div>
+
+    <!-- Project 4: Board 2 Capstone -->
+    <div class="project-card">
+        <div class="project-images">
+            <div class="project-img-slot"><img src="images/board2-systems.jpg" alt="Board 2 systems side showing Victron Multiplus inverter/charger, isolation transformer, MPPT charge controller, Cerbo GX, and full AC/DC wiring"></div>
+            <div class="project-img-slot"><img src="images/board2-helm.jpg" alt="Board 2 helm side showing Garmin MFD, VHF radio with external speaker, navigation lighting, battery switches, distribution panel, and SunPower solar panel"></div>
+            <div class="project-img-slot"><img src="images/board2-batteries.jpg" alt="Battery compartment showing Victron AGM starter battery, Victron LiFePO4 house battery, VE.Bus BMS, Orion XS DC-DC charger, and main fusing"></div>
+            <div class="project-img-slot"><img src="images/board2-full.jpg" alt="Full view of Board 2 capstone project outdoors showing complete integrated marine electrical system"></div>
+        </div>
+        <div class="project-details">
+            <div class="project-type">Capstone Project &bull; Integrated Marine Electrical System</div>
+            <h3 class="project-title">Board 2 — Cruising Vessel Electrical System</h3>
+            <p class="project-vessel">Capstone Project — NWSWB Marine Systems Program</p>
+            <p class="project-desc">
+            A fully integrated marine electrical systems mock-up representing the complete electrical installation of a modern 25–45 foot cruising vessel. Built as my capstone project for the Marine Systems program, Board 2 combines AC and DC systems, energy storage, power conversion, digital monitoring, and renewable charging in a single working platform.
+            </p>
+            <button class="read-more-btn" onclick="toggleExpand(this)">
+            Read more
+            <svg viewBox="0 0 16 16" fill="none" width="14" height="14"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="project-expanded">
+                <div class="project-expanded-inner">
+                    <h4>Energy Storage &amp; Battery Management</h4>
+                    <p>The system uses a dual-battery configuration — a Victron AGM 12V starter battery and a Victron LiFePO4 12V 100Ah house battery. Battery management is handled by a VE.Bus BMS V2, with an Orion XS 12/12-50A DC-DC charger isolating and charging the starter battery from the house bank. A Victron SmartShunt/BMV-712 provides real-time battery monitoring.</p>
+                    <h4>AC System</h4>
+                    <p>Shore power enters through a 30A inlet and passes through a Victron isolation transformer for galvanic protection before reaching the main AC distribution panel. A Victron Multiplus inverter/charger handles both AC charging from shore power and DC-to-AC inversion when off-grid. The AC system includes GFCI outlets and reverse polarity protection with visual indication.</p>
+                    <h4>DC System &amp; Distribution</h4>
+                    <p>A main DC distribution panel feeds two fused sub-panels supplying navigation lighting, cabin lighting with day/night control, bilge pump with automatic float switch and manual override plus alarm, windshield wiper, blower, VHF radio, USB charging, and a keyed ignition switch.</p>
+                    <h4>Renewable Energy &amp; Victron Integration</h4>
+                    <p>A SunPower solar panel feeds a Victron MPPT charge controller, with the full Victron ecosystem integrated through a Cerbo GX with Touch 50 touchscreen display — providing unified monitoring of solar production, battery state, AC input/output, and all connected loads via Bluetooth and the VictronConnect app.</p>
+                    <h4>Navigation &amp; Communications</h4>
+                    <p>A Garmin MFD is integrated via a NMEA 2000 backbone alongside a VHF radio with external speaker and antenna. Navigation lighting includes port, starboard, and stern lights with proper circuit protection.</p>
+                    <h4>Troubleshooting &amp; Problem Solving</h4>
+                    <p>Three real-world faults were identified and resolved during the build. A reversed hot and neutral at the shore power inlet was immediately caught by the reverse polarity indicator and corrected. An external VHF speaker produced no output — tracing the issue revealed the speaker cable uses the outer sheath as the negative conductor, which required separating and terminating each conductor individually with heat-shrink butt splices. Solar data was absent from the Cerbo GX display because the MPPT's VE.Direct port had been used for a BMS charge-disconnect function; reconfiguring the MPPT to charge the AGM battery instead freed the port and restored full solar monitoring.</p>
+                </div>
+            </div>
+            <div class="project-tags">
+            <span class="tag">LiFePO4</span>
+            <span class="tag">Victron Multiplus</span>
+            <span class="tag">Cerbo GX</span>
+            <span class="tag">NMEA 2000</span>
+            <span class="tag">Solar / MPPT</span>
+            <span class="tag">Isolation Transformer</span>
+            <span class="tag">BMS</span>
+            <span class="tag">Garmin MFD</span>
+            </div>
+        </div>
+    </div>
 </section>
 
 <!-- SKILLS -->
